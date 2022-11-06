@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block MainContent %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-sm-12 col-lg-8">
+            <form action="/" method="post">
+                <div class="form-group">
+                    <label>Text</label>
+                    <input type="text" name="text" id="text" class="form-control">
+                </div>
+                <button class="btn btn-primary" type="submit">Check</button>
+            </form>
+        </div>
+    </div>
+
+<br><br>
+    {% if result != None %}
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-lg-4">
+            {% if result == 1 %}
+            <div class="alert alert-danger" role="alert">
+                It's a SPAM!
+            </div>
+            {% else %}
+            <div class="alert alert-success" role="alert">
+                All Good!
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
